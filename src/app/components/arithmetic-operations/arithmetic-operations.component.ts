@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { filter, interval, map, take } from 'rxjs';
+import { filter, interval, map, Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'fw-arithmetic-operations',
@@ -11,7 +11,7 @@ export class ArithmeticOperationsComponent {
 
   public numbers = interval(1000).pipe(take(20));
 
-  public valueEl$: any;
+  public valueEl$:  Subscription | undefined;
   public valueEl: Array<number> = [];
   public valueElCut: Array<number> = [];
   public valueElDivided: Array<number> = [];
