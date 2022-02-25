@@ -1,0 +1,28 @@
+<div class="wrapper-content">
+  <div class="wrapper-btn">
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="valueMultipliedByTree()">
+        multiplied by 3
+      </button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueEl">{{ el }}</div>
+      </div>
+    </div>
+
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="firstSevenValues()">
+        first 7 values
+      </button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueElCut">{{ el }}</div>
+      </div>
+    </div>
+
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="dividedByTwo()">multiples of 2</button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueElDivided">{{ el }}</div>
+      </div>
+    </div>
+  </div>
+</div>

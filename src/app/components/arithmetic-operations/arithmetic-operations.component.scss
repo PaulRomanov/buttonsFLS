@@ -1,0 +1,36 @@
+.wrapper-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.component1-btn {
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  width: 200px;
+  height: 50px;
+  margin: 10px 0 10px 0;
+  border-radius: 30px;
+}
+
+.component1-btn:hover {
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  color: #3498db;
+  cursor: pointer;
+}
+
+.mulBy3 {
+  display: flex;
+}
+
+.wrapper-btn-item {
+  display: flex;
+}
+
+.wrapper-value {
+  display: flex;
+  background-color: #8bc5ec;
+  font-size: 30px;
+}
