@@ -1,0 +1,26 @@
+.wrapper-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.component1-btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 30px;
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+}
+
+.mulBy3 {
+  display: flex;
+}
+
+.wrapper-btn1 {
+  display: flex;
+}
+
+.wrapper-mul-by-3 {
+  display: flex;
+  background-color: rgb(157, 255, 0);
+  font-size: 30px;
+}
