@@ -2,7 +2,7 @@
   <div class="wrapper-btn">
     <div class="wrapper-btn-item">
       <button class="component1-btn" (click)="delayOf200()">
-        multiplied by 3
+        delay of 200
       </button>
       <div class="wrapper-value">
         <div class="mulBy3" *ngFor="let el of valueFlowsDelayOf200">
@@ -16,6 +16,16 @@
 
       <div class="wrapper-value">
         <div class="mulBy3" *ngFor="let el of valueNewFlowElements">
+          {{ el }}
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="evenFlowElement ()">even flow element</button>
+
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueEvenFlowElement">
           {{ el }}
         </div>
       </div>

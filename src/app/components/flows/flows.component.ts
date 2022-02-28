@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { concat, concatMap, delay, interval, map, of, repeat, Subscription, switchMap, take, toArray } from 'rxjs';
+import { concatMap, delay, filter, interval, of, repeat, Subscription, switchMap, take } from 'rxjs';
 
 @Component({
   selector: 'fw-flows',
@@ -13,6 +13,7 @@ export class FlowsComponent {
 
   public valueFlowsDelayOf200: Array<number> = [];
   public valueNewFlowElements: Array<number> = [];
+  public valueEvenFlowElement: Array<number> = [];
 
   constructor() { }
 
@@ -35,6 +36,18 @@ export class FlowsComponent {
         this.valueNewFlowElements = [...this.valueNewFlowElements, element]
       });
   }
+
+  public evenFlowElement() {
+    this.valueFlows$ = this.numbers
+      .pipe(
+        switchMap(item => of(item).pipe(delay(100), repeat(5))),
+        filter((element) => element % 2 == 0)
+        )
+      .subscribe((element: number) => {
+        this.valueEvenFlowElement = [...this.valueEvenFlowElement, element]
+      });
+  }
+
 
   ngOnDestroy() {
     this.valueFlows$.unsubscribe();
