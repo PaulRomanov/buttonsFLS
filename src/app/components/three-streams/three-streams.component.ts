@@ -21,22 +21,22 @@ export class ThreeStreamsComponent {
   constructor() { }
 
   public lastThreeValues() {
-    combineLatest(
+    combineLatest([
       this.source1,
       this.source2,
       this.source3
-    )
+    ])
       .subscribe((element: number[]) => {
         this.valueLastThreeValues1.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
       })
   }
 
   public lastValues() {
-    forkJoin(
+    forkJoin([
       this.source1,
       this.source2,
       this.source3
-    )
+    ])
     .subscribe((element: number[]) => {
       this.valueLastValues.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
     })
