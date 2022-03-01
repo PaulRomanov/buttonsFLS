@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ArithmeticOperationsModule } from './components/arithmetic-operations/arithmetic-operations.module';
 import { FlowsModule } from './components/flows/flows.module';
 import { HeaderModule } from './components/header/header.module';
+import { ThreeStreamsModule } from './components/three-streams/three-streams.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HeaderModule } from './components/header/header.module';
     AppRoutingModule,
     ArithmeticOperationsModule,
     HeaderModule,
-    FlowsModule
+    FlowsModule,
+    ThreeStreamsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
