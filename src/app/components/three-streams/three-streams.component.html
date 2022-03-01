@@ -1,0 +1,38 @@
+<div class="wrapper-content">
+  <div class="wrapper-btn">
+
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="lastThreeValues()">
+        last three values
+      </button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueLastThreeValues1">
+          {{ el }}
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="lastValues()">
+        last values
+      </button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueLastValues">
+          {{ el }}
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="togetherValues()">
+        together values
+      </button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueTogetherValues">
+          {{ el }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
