@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { combineLatest, forkJoin, interval, last, map, range, Subscription, take } from 'rxjs';
+import { combineLatest, forkJoin, interval, last, map, range, Subscription, take, zip } from 'rxjs';
 
 @Component({
   selector: 'fw-three-streams',
@@ -17,6 +17,8 @@ export class ThreeStreamsComponent {
   public valueLastThreeValues3: Array<number> = [];
 
   public valueLastValues: Array<number> = [];
+  public valueTogetherValues: Array<number> = [];
+
 
   constructor() { }
 
@@ -37,9 +39,20 @@ export class ThreeStreamsComponent {
       this.source2,
       this.source3
     ])
-    .subscribe((element: number[]) => {
-      this.valueLastValues.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
-    })
+      .subscribe((element: number[]) => {
+        this.valueLastValues.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
+      })
+  }
+
+  public togetherValues() {
+    zip([
+      this.source1,
+      this.source2,
+      this.source3
+    ])
+      .subscribe((element: number[]) => {
+        this.valueTogetherValues.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
+      })
   }
 
 }

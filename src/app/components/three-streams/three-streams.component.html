@@ -23,5 +23,16 @@
       </div>
     </div>
 
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="togetherValues()">
+        together values
+      </button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueTogetherValues">
+          {{ el }}
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
