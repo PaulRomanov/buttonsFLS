@@ -12,6 +12,16 @@
       </div>
     </div>
 
+    <div class="wrapper-btn-item">
+      <button class="component1-btn" (click)="lastValues()">
+        last values
+      </button>
+      <div class="wrapper-value">
+        <div class="mulBy3" *ngFor="let el of valueLastValues">
+          {{ el }}
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>

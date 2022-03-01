@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { combineLatest, interval, map, Subscription, take } from 'rxjs';
+import { combineLatest, forkJoin, interval, last, map, range, Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'fw-three-streams',
@@ -12,12 +12,11 @@ export class ThreeStreamsComponent {
   public source2 = interval(300).pipe(take(10), map((val) => val));
   public source3 = interval(400).pipe(take(10), map((val) => val));
 
-  public ThreeStreams$!: Subscription;
-
-  public valueLastThreeValues: Array<number> = [];
   public valueLastThreeValues1: Array<number> = [];
   public valueLastThreeValues2: Array<number> = [];
   public valueLastThreeValues3: Array<number> = [];
+
+  public valueLastValues: Array<number> = [];
 
   constructor() { }
 
@@ -26,9 +25,20 @@ export class ThreeStreamsComponent {
       this.source1,
       this.source2,
       this.source3
-      )
-    .subscribe((element: number[])=>{
-      this.valueLastThreeValues1.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
+    )
+      .subscribe((element: number[]) => {
+        this.valueLastThreeValues1.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
+      })
+  }
+
+  public lastValues() {
+    forkJoin(
+      this.source1,
+      this.source2,
+      this.source3
+    )
+    .subscribe((element: number[]) => {
+      this.valueLastValues.push(...this.valueLastThreeValues2, ...this.valueLastThreeValues3, ...element);
     })
   }
 
